@@ -14,7 +14,8 @@ string imageUrl = string("/Users/wangzhiyuan/Documents/image/dog.jpg");
 string videoUrl = string("/Users/wangzhiyuan/Documents/avi/me.mov");
 
 int main(int argc, const char * argv[]) {
-    OpenCVImpl*cvImpl;
-    cvImpl->CaptureDisplay();
+    OpenCVImpl* cvImpl = new OpenCVImpl();
+    cvImpl->DetectFace();
+    delete cvImpl;
     return 0;
 }
