@@ -134,7 +134,68 @@ void OpenCVImpl::detectAndDisplay(Mat frame){
     imshow(window_name, frame);
 }
 
+void OpenCVImpl::Draw(){
+    Mat atomImage = Mat::zeros(WINDOW_WIDTH, WINDOW_WIDTH, CV_8UC3);
+    
+    DrawEllipse( atomImage, 90 );
+    DrawEllipse( atomImage, 0 );
+    DrawEllipse( atomImage, 45 );
+    DrawEllipse( atomImage, -45 );
+    
+    DrawFilledCircle( atomImage, Point( WINDOW_WIDTH/2, WINDOW_WIDTH/2) );
+    
+    DrawLine( atomImage, Point( 0, 15*WINDOW_WIDTH/16 ), Point( WINDOW_WIDTH, 15*WINDOW_WIDTH/16 ) );
+    DrawLine( atomImage, Point( WINDOW_WIDTH/4, 7*WINDOW_WIDTH/8 ), Point( WINDOW_WIDTH/4, WINDOW_WIDTH ) );
+    DrawLine( atomImage, Point( WINDOW_WIDTH/2, 7*WINDOW_WIDTH/8 ), Point( WINDOW_WIDTH/2, WINDOW_WIDTH ) );
+    DrawLine( atomImage, Point( 3*WINDOW_WIDTH/4, 7*WINDOW_WIDTH/8 ), Point( 3*WINDOW_WIDTH/4, WINDOW_WIDTH ) );
 
+    
+    imshow(WINDOW_NAME1, atomImage);
+    moveWindow(WINDOW_NAME1, 0, 200);
+    
+    waitKey(0);
+}
+
+//绘制椭圆
+void OpenCVImpl::DrawEllipse(Mat img, double angle){
+    int thickness = 2;
+    int lineType = 8;
+    ellipse(img,
+            Point( WINDOW_WIDTH/2, WINDOW_WIDTH/2 ),
+            Size( WINDOW_WIDTH/4, WINDOW_WIDTH/16 ),
+            angle,
+            0,
+            360,
+            Scalar( 255, 129, 0 ),
+            thickness,
+            lineType);
+}
+
+void OpenCVImpl::DrawFilledCircle(Mat img, Point center){
+    int thickness = -1;
+    int lineType = 8;
+    
+    circle( img,
+           center,
+           WINDOW_WIDTH/32,
+           Scalar( 0, 0, 255 ),
+           thickness,
+           lineType );
+}//绘制圆
+void OpenCVImpl::DrawPolygon(Mat img){
+    
+}//绘制多边形
+void OpenCVImpl::DrawLine(Mat img, Point start, Point end){
+    int thickness = 2;
+    int lineType = 8;
+    line(img,
+         start,
+         end,
+         Scalar( 255, 129, 0 ),
+         thickness,
+         lineType
+    );
+}//绘制线段
 
 
 

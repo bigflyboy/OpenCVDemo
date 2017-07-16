@@ -13,6 +13,11 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
+
+#define WINDOW_NAME1 "【绘制图1】"        //为窗口标题定义的宏
+#define WINDOW_NAME2 "【绘制图2】"        //为窗口标题定义的宏
+#define WINDOW_WIDTH 600//定义窗口大小的宏
+
 using namespace cv;
 using namespace std;
 
@@ -25,6 +30,18 @@ public:
     void VideoDisplay(string url);
     void CaptureDisplay();
     int DetectFace();
+    
+    void Draw();
+    
+    void DrawEllipse(Mat img, double angle);//绘制椭圆
+    void DrawFilledCircle(Mat img, Point center);//绘制圆
+    void DrawPolygon(Mat img);//绘制多边形
+    void DrawLine(Mat img, Point start, Point end);//绘制线段
+    
+    //===========================================================
+    
+    
+    //===========================================================
     
 private:
     
