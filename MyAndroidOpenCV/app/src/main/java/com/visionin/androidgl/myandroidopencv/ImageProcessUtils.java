@@ -346,13 +346,13 @@ public class ImageProcessUtils {
 
     private static Mat getCustomOperator(String command) {
         Mat kernel = new Mat(3, 3, CvType.CV_32FC1);
-//        if(CUSTOM_BLUR_COMMAND.equals(command)) {
-//            kernel.put(0, 0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0);
-//        } else if(CUSTOM_EDGE_COMMAND.equals(command)) {
-//            kernel.put(0, 0, -1, -1, -1, -1, 8, -1, -1, -1, -1);
-//        } else if(CUSTOM_SHARPEN_COMMAND.equals(command)) {
-//            kernel.put(0, 0, -1, -1, -1, -1, 9, -1, -1, -1, -1);
-//        }
+        if(CommandConstants.CUSTOM_BLUR_COMMAND.equals(command)) {
+            kernel.put(0, 0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0, 1.0/9.0);
+        } else if(CommandConstants.CUSTOM_EDGE_COMMAND.equals(command)) {
+            kernel.put(0, 0, -1, -1, -1, -1, 8, -1, -1, -1, -1);
+        } else if(CommandConstants.CUSTOM_SHARPEN_COMMAND.equals(command)) {
+            kernel.put(0, 0, -1, -1, -1, -1, 9, -1, -1, -1, -1);
+        }
         return kernel;
     }
 
